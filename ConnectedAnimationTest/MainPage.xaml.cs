@@ -33,5 +33,19 @@ namespace ConnectedAnimationTest
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(SecondPage), null, new SuppressNavigationTransitionInfo());
         }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("Thing", Thing);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var thingAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("Thing");
+            thingAnimation?.TryStart(Thing);
+        }
     }
 }

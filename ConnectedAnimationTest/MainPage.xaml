@@ -17,8 +17,7 @@
 
         <Rectangle x:Name="Thing"
             Width="200" Height="200"
-            Fill="LightSkyBlue"
-            animations:Connected.Key="Thing" />
+            Fill="LightSkyBlue" />
 
         <Button Content="Navigate" 
             Grid.Row="1" HorizontalAlignment="Center"

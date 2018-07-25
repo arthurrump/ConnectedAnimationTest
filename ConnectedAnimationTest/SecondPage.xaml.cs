@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -31,6 +32,20 @@ namespace ConnectedAnimationTest
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.GoBack();
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("Thing", Thing);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var thingAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("Thing");
+            thingAnimation?.TryStart(Thing);
         }
     }
 }

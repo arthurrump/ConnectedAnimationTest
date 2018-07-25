@@ -11,19 +11,18 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ConnectedAnimationTest
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class SecondPage : Page
     {
-        public MainPage()
+        public SecondPage()
         {
             this.InitializeComponent();
         }
@@ -31,7 +30,7 @@ namespace ConnectedAnimationTest
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(SecondPage), null, new SuppressNavigationTransitionInfo());
+            rootFrame.GoBack();
         }
     }
 }

@@ -14,13 +14,14 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <Rectangle x:Name="Thing"
-            Grid.Row="1"
-            Width="300" Height="300"
-            Fill="LightSkyBlue"
-            animations:Connected.Key="Thing" />
-        
+
+        <ScrollViewer Grid.Row="1">
+            <Rectangle x:Name="Thing"
+                Width="300" Height="300"
+                Fill="LightSkyBlue"
+                animations:Connected.Key="Thing" />
+        </ScrollViewer>
+
         <Button Content="Go back" 
             Grid.Row="0" HorizontalAlignment="Center"
             Click="Button_Click" />
